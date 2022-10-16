@@ -1,0 +1,47 @@
+{% extends 'home.html' %}
+{% block content%}
+<form method="POST" action="add_details" enctype="multipart/form-data">
+<div class="container my-4">
+  <h1 class="text-center">  ADD PATIENT DETAILS </h1> 
+
+  
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label"><strong>Name</strong></label>
+    <input type="text" class="form-control" name="name" placeholder="FULL name">
+  </div>
+  
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label"><strong>Email address</strong></label>
+    <input type="email" class="form-control"  name="email" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label"><strong>Contact number</strong></label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="number" placeholder="type here">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label"><strong>Disease</strong></label>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="disease" placeholder="Example input placeholder">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label"><strong>Current Condition</strong></label>
+    <textarea class="form-control" name="condition" id="exampleFormControlTextarea1" type="text"></textarea>
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label"><strong>Current Prescribed Medicine</strong></label>
+    <input type="text" class="form-control" name="curr_prescribed" id="formGroupExampleInput" placeholder="Example input placeholder">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label"><strong>Previous Prescribed Medicine</strong></label>
+    <input type="text" class="form-control" name="prev_prescribed" id="formGroupExampleInput2" placeholder="Another input placeholder">
+  </div>
+  <div class="mb-3">
+    <label for="formFileSm" class="form-label"><strong>Add Your Profile Picture Here</strong></label>
+    <input class="form-control form-control-sm" name="upl_img" id="formFileSm" type="file">
+  </div>
+ 
+ <button type="submit" class="btn btn-primary">UPDATE DETAILS</button>
+
+</div>
+</form>
+{% endblock%}

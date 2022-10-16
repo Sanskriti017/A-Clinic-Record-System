@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+{% block content%}
+ {% if query_name %}
+   <div class="container my-4">
+   <h2 class="text-center"> You have Searched for {{query_name}}</h2>
+   <br/>
+   {% if results %}
+   
+   <table class="table table-success table-striped">
+    <thead>
+        <tr>
+          <th scope="col">S.No</th>
+          <th scope="col">Name</th>
+          <th scope="col">Disease</th>
+          <th scope="col">Email Id</th>
+          <th scope="col">Information </th>
+        </tr>
+      </thead>
+      {% for result in results %}
+   <tbody>
+    <tr>
+      <th scope="row">{{result.id}}</th>
+      <td>{{result.name}}</td>
+      <td>{{result.disease}}</td>
+      <td>{{result.email}}</td>
+      <td><button type="button" class="btn btn-outline-secondary" ><a style="color: black; text-decoration: none;" href= "{% url 'details' result.id %}">Details</a></button></td>
+      </td>
+    </tr>
+   
+  </tbody>
+
+   {% endfor %}
+</table>
+   {% else %}
+     <h3 style="text-align: center"> Nothing Found!!</h3>
+   </div>
+   {% endif%}
+ {% else %}
+   <h1 class="container my-4 "> type first in search bar !! you have typed nothing </h1>
+ {% endif %}
+ 
+
+{% endblock%}

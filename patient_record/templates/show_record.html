@@ -1,0 +1,32 @@
+{% extends 'home.html' %}
+ {% block content %}
+ <div class="container my-4 ">
+
+ <table class="table table-success table-striped " style="margin: 0px auto;">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">S.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Disease</th>
+        <th scope="col">Email Id</th>
+        <th scope="col">Information</th>
+      </tr>
+    </thead>
+    {% for record  in record_list %}
+    <tbody>
+      <tr>
+        <th scope="row"></th>
+        <th scope="row">{{record.id}}</th>
+        <td>{{record.name}}</td>
+        <td>{{record.disease}}</td>
+        <td>{{record.email}}</td>
+        <td><button type="button" class="btn btn-outline-secondary" ><a  style="color: black; text-decoration: none;" href= "{% url 'details' record.id %}">Details</a></button></td>
+        </td>
+      </tr>
+     
+    </tbody>
+    {% endfor %}
+  </table>
+</div>
+  {% endblock  %}

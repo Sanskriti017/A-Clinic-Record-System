@@ -1,0 +1,49 @@
+{% extends 'home.html' %}
+{%block content%}
+<div class="container my-4">
+  <br/>
+  <h1 style="text-align:center"> Patient information </h1>
+   <div class="card mb-3 my-4" style="max-width: 1540px;">
+    <div class="row g-0">
+      <div class="col-md-4 my-4 " style="padding:12px;">
+        
+         
+          {% if record_list.venue_image %}
+        <img src="{{BASE_DIR}}/{{record_list.venue_image}}" class="img-fluid rounded-start" alt="..." style="height: 300px;width: 400px;"> 
+        {% else %}
+        <div >
+          <img src="https://source.unsplash.com/featured/?girl,profile" class="img-fluid rounded-start" alt="..." style="height: 300px;width: 400px;">
+        </div>
+         {%endif%}
+        
+        
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+            
+            <br/>
+          
+          <h5 class="card-title"> Name : {{ record_list.name}}</h5>
+          <p class="card-text"> <strong>disease :</strong> {{record_list.disease}}</p>
+          <p class="card-text"><strong> patient current condition :</strong><br/> {{record_list.condition}}</p> 
+          <p class="card-text"> <strong>previous prescribed medicine :</strong> {{record_list.prev_prescribed}}</p> 
+          <p class="card-text"><strong> current prescribed medicine :</strong> {{record_list.curr_prescribed}}</p> 
+          <p class="card-text"> <strong>Email :</strong> {{record_list.email}}</p> 
+          <p class="card-text"> <strong>contact number :</strong> {{record_list.number}}</p>
+        </br>
+      </br>
+        {% if request.user.id is 1%}  
+          <button type="button" class="btn btn-success mx-2">Safe</button>
+          <button type="button" class="btn btn-danger mx-2">Emergency</button>
+          {% endif %}
+          <button type="button" class="btn btn-primary mx-2"><a href="{% url 'edit' request.user.id %}" style="text-decoration: none; color: white;">Edit</a></button>
+          {% if request.user.id is not 1 %}
+          <button type="button" class="btn btn-secondary mx-2">Urgent Consultaion</button>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+   
+</div>
+{%endblock%}

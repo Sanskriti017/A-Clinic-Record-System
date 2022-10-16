@@ -1,0 +1,45 @@
+{% extends 'home.html' %}
+{% block content%}
+<form method="POST" action="">
+<div class="container my-4">
+  <h1 class="text-center">  UPDATE PATIENT DETAILS </h1>
+  
+
+  
+  {% csrf_token %}
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label"><strong>Name</strong></label>
+    <input type="text" class="form-control" name="name" value="{{record_user.name}}" placeholder="FULL name">
+  </div>
+  
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Email address</label>
+    <input type="email" class="form-control"  name="email" value="{{record_user.email}}" placeholder="name@example.com">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">contact number</label>
+    <input type="text" class="form-control" id="formGroupExampleInput2" name="number" value="{{record_user.number}}" placeholder="type here">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">Disease</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" name="disease" value="{{record_user.disease}}" placeholder="Example input placeholder">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">current condition</label>
+    <input type="text" class="form-control" name="condition" id="exampleFormControlTextarea1" value="{{record_user.condition}}" placeholder="condition">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput" class="form-label">current prescribed medicine</label>
+    <input type="text" class="form-control" name="curr_prescribed" id="formGroupExampleInput" value="{{record_user.curr_prescribed}}" placeholder="Example input placeholder">
+  </div>
+  <div class="mb-3">
+    <label for="formGroupExampleInput2" class="form-label">previous prescribed medicine</label>
+    <input type="text" class="form-control" name="prev_prescribed" id="formGroupExampleInput2" value="{{record_user.prev_prescribed}}" placeholder="Another input placeholder">
+  </div>
+  
+ 
+ <button type="submit" class="btn btn-primary">UPDATE Details</button>
+
+</div>
+</form>
+{% endblock%}
